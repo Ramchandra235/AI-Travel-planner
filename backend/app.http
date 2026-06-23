@@ -1,0 +1,53 @@
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Rams",
+  "email": "rams@gmail.com",
+  "password": "2305"
+}
+
+###
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "rams@gmail.com",
+  "password": "2305"
+}
+
+####
+GET http://localhost:5000/api/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMzk3YTY0Y2JhMTM5YzE1M2FmZWMyNyIsImlhdCI6MTc4MjE1MTc5NiwiZXhwIjoxNzgyNzU2NTk2fQ.p7_bOf8JtUxy6Nz8tjRhlNwjIDsYroKokg6-pg4c5_c
+
+
+
+
+###
+GET http://localhost:5000/api/trips
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMzk3YTY0Y2JhMTM5YzE1M2FmZWMyNyIsImlhdCI6MTc4MjE1MTc5NiwiZXhwIjoxNzgyNzU2NTk2fQ.p7_bOf8JtUxy6Nz8tjRhlNwjIDsYroKokg6-pg4c5_c
+
+####
+
+POST http://localhost:5000/api/trips
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMzk3YTY0Y2JhMTM5YzE1M2FmZWMyNyIsImlhdCI6MTc4MjE1MTc5NiwiZXhwIjoxNzgyNzU2NTk2fQ.p7_bOf8JtUxy6Nz8tjRhlNwjIDsYroKokg6-pg4c5_c
+Content-Type: application/json
+
+{
+  "destination": "Paris",
+  "durationDays": 4,
+  "budgetTier": "High",
+  "interests": ["Food", "Museums"]
+}
+
+####
+POST http://localhost:5000/api/ai/generate
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMzk3YTY0Y2JhMTM5YzE1M2FmZWMyNyIsImlhdCI6MTc4MjE1MTk5MiwiZXhwIjoxNzgyNzU2NzkyfQ.MSNq3HQILg3Q8Wf7wwUhzfKvl4-Lyf3mwciDjxV5x70
+Content-Type: application/json
+
+{
+  "destination": "Paris",
+  "durationDays": 4,
+  "budgetTier": "Medium",
+  "interests": ["Food", "Museums"]
+}
