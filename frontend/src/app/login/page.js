@@ -11,7 +11,7 @@ export default function LoginPage() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/login",
+        "https://ai-travel-planner-1-0dol.onrender.com/api/auth/login",
         {
           method: "POST",
           headers: {
@@ -27,16 +27,20 @@ export default function LoginPage() {
       const data = await response.json();
 
       if (data.token) {
-        localStorage.setItem("token", data.token);
-window.location.href = "/dashboard";
- 
+        localStorage.setItem(
+          "token",
+          data.token
+        );
 
-      
+        window.location.href =
+          "/dashboard";
       } else {
-        alert(data.message);
+        alert(
+          data.message || "Login failed"
+        );
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
       alert("Login Failed");
     }
   };
@@ -56,7 +60,10 @@ window.location.href = "/dashboard";
           placeholder="Email"
           className="border p-2 w-full mb-3"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) =>
+            setEmail(e.target.value)
+          }
+          required
         />
 
         <input
@@ -64,12 +71,15 @@ window.location.href = "/dashboard";
           placeholder="Password"
           className="border p-2 w-full mb-3"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) =>
+            setPassword(e.target.value)
+          }
+          required
         />
 
         <button
           type="submit"
-          className="bg-black text-white p-2 w-full"
+          className="bg-black text-white p-2 w-full rounded"
         >
           Login
         </button>
