@@ -33,7 +33,7 @@ export default function DashboardPage() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/trips",
+        "https://ai-travel-planner-1-0dol.onrender.com/api/trips",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -60,7 +60,7 @@ export default function DashboardPage() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/trips",
+        "https://ai-travel-planner-1-0dol.onrender.com/api/trips",
         {
           method: "POST",
           headers: {
@@ -95,7 +95,7 @@ export default function DashboardPage() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/ai/generate",
+        "https://ai-travel-planner-1-0dol.onrender.com/api/ai/generate",
         {
           method: "POST",
           headers: {
@@ -138,11 +138,11 @@ export default function DashboardPage() {
   };
 
   return (
-<div className="min-h-screen p-8 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900">
+    <div className="min-h-screen p-8 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900">
       <Navbar />
 
       <div className="flex justify-between items-center mb-6">
-<h1 className="text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        <h1 className="text-4xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
           My Trips
         </h1>
 
@@ -151,7 +151,7 @@ export default function DashboardPage() {
             localStorage.removeItem("token");
             window.location.href = "/login";
           }}
-    className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 hover:scale-105 transition-all duration-300 shadow-md"
+          className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 hover:scale-105 transition-all duration-300 shadow-md"
         >
           Logout
         </button>
@@ -172,7 +172,7 @@ export default function DashboardPage() {
       <button
         onClick={generateAITrip}
         disabled={loading}
-      className="bg-blue-600 text-white px-5 py-2 rounded-lg mb-6 hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-md"
+        className="bg-blue-600 text-white px-5 py-2 rounded-lg mb-6 hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-md"
       >
         {loading
           ? "Generating..."
@@ -186,19 +186,21 @@ export default function DashboardPage() {
       )}
 
       {itinerary && (
-        <div className="border rounded p-4 mb-6">
-          <h2 className="text-2xl font-bold mb-3">
+        <div className="bg-white rounded-lg p-4 mb-6 shadow">
+          <h2 className="text-2xl font-bold mb-3 text-black">
             AI Itinerary
           </h2>
 
-          <pre className="whitespace-pre-wrap">
+          <pre className="whitespace-pre-wrap text-black">
             {itinerary}
           </pre>
         </div>
       )}
 
       {trips.length === 0 ? (
-        <p>No trips found</p>
+        <p className="text-white">
+          No trips found
+        </p>
       ) : (
         trips.map((trip) => (
           <TripCard
